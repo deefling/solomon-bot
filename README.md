@@ -1,6 +1,6 @@
 Hello, welcome to Solomon-bot!
 
-I'll be sharing this to a somewhat public audience & I don't want my bot's vulnerabilities to be exposed so here's what you need to set up your own version:
+I'll be sharing this to a somewhat public audience & I don't want my bot's vulnerabilities to be exposed, here's what you need to set up your own version:
 - have node.js installed
 - make an app on the discord developer portal
 - make a .env file with the following info in it:
