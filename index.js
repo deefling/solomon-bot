@@ -32,7 +32,7 @@ for (const file of commandFiles) {
 }
 
 client.on('ready', async () => {
-	// await aiBootUp();
+	await aiBootUp();
 });
 
 async function aiBootUp(){
