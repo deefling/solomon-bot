@@ -1,0 +1,71 @@
+>>>>> V1 (Rituals) <<<<<
+
+// V1 Documentation/Release Notes
+
+// help messages for commands
+
+// Store equipment as an array
+
+//Implement active specials (text descr)
+
+//Roll with class dice
+
+//DM abilities?
+
+//Dictator
+    - Emotional Pallette
+    - The Voice
+        control
+            d4 pass & reclaim
+        attack
+        crit fail
+        multi-target
+        audience emotion
+    - duel
+    - Emotional nudge
+
+    //Fool
+        - Flukes/Circles
+        - If all else fails
+        - Trade
+
+// Emotion Knight
+    - Finish class feature set methods
+        - weapon
+        - stance
+    - Custom toString for class features
+    - emotionally engaged
+    - Creative Violence ability
+    - Vent ability
+    - List features
+
+    //Neo
+        - Fair Gold
+        - Neotech
+            special
+        - Gifts
+        - Overcharge
+
+    //Godbinder
+        - Scripture
+        - God Debt
+        - Miracles
+        - Breaking Deals
+        - The Gods
+
+    //Master
+        - Cheating
+        - My Game My Rules
+
+ 
+
+>>>>> V2 (Campaign mode) <<<<<
+
+// Stat increase method
+
+// Emotion Knight
+    - Advancement
+    - Additional Vents
+        set active
+    - Additional Stance
+        set active

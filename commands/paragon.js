@@ -2,14 +2,6 @@ const { SlashCommandBuilder } = require('discord.js');
 const mongoDriver = require('../mongoDriver.js');
 const paragonFactory = require('../die/paragonFactory.js');
 
-const stats = [
-    { name: '1', value: 2 },
-    { name: '2', value: 2 },
-    { name: '3', value: 3 },
-    { name: '4', value: 4 },
-    { name: '5', value: 5 },
-]
-
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('paragon')
@@ -30,67 +22,43 @@ module.exports = {
             option.setName('str')
             .setDescription('The STRENGTH score of your Paragon')
             .setRequired(true)
-            .addChoices(
-                { name: '1', value: 1 },
-                { name: '2', value: 2 },
-                { name: '3', value: 3 },
-                { name: '4', value: 4 },
-            )
+            .setMaxValue(4)
+            .setMinValue(0)
         )
         .addIntegerOption( option => 
             option.setName('dex')
             .setDescription('The DEXTERITY score of your Paragon')
             .setRequired(true)
-            .addChoices(
-                { name: '1', value: 1 },
-                { name: '2', value: 2 },
-                { name: '3', value: 3 },
-                { name: '4', value: 4 },
-            )
+            .setMaxValue(4)
+            .setMinValue(0)
         )
         .addIntegerOption( option => 
             option.setName('con')
             .setDescription('The CONSTITUTION score of your Paragon')
             .setRequired(true)
-            .addChoices(
-                { name: '1', value: 1 },
-                { name: '2', value: 2 },
-                { name: '3', value: 3 },
-                { name: '4', value: 4 },
-            )
+            .setMaxValue(4)
+            .setMinValue(0)
         )
         .addIntegerOption( option => 
             option.setName('int')
             .setDescription('The INTELLIGENCE score of your Paragon')
             .setRequired(true)
-            .addChoices(
-                { name: '1', value: 1 },
-                { name: '2', value: 2 },
-                { name: '3', value: 3 },
-                { name: '4', value: 4 },
-            )
+            .setMaxValue(4)
+            .setMinValue(0)
         )
         .addIntegerOption( option => 
             option.setName('wis')
             .setDescription('The WISDOM score of your Paragon')
             .setRequired(true)
-            .addChoices(
-                { name: '1', value: 1 },
-                { name: '2', value: 2 },
-                { name: '3', value: 3 },
-                { name: '4', value: 4 },
-            )
+            .setMaxValue(4)
+            .setMinValue(0)
         )
         .addIntegerOption( option => 
             option.setName('cha')
             .setDescription('The CHARISMA score of your Paragon')
             .setRequired(true)
-            .addChoices(
-                { name: '1', value: 1 },
-                { name: '2', value: 2 },
-                { name: '3', value: 3 },
-                { name: '4', value: 4 },
-            )
+            .setMaxValue(4)
+            .setMinValue(0)
         ),
 	async execute(interaction) {
         var paragon;
