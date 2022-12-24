@@ -56,7 +56,7 @@ exports.EmotionKnight = class extends Paragon{
     static stances = {
         combat: [
             {
-                stance: "Bodygurard",
+                stance: "Bodyguard",
                 ability: "Choose someone within arm’s reach. If they are attacked, you can choose to be attacked instead."
             },
             {
@@ -94,11 +94,108 @@ exports.EmotionKnight = class extends Paragon{
         ],
         social: [
             {
-                stance: "",
-                ability: ""
+                stance: "Intimidating Gaze",
+                ability: "You can be a scary fucker. You radiate murderous contempt. If there’s a question of “who’s the most murderous person in the room?” The answer is “You.”"
+            },
+            {
+                stance: "Common Touch",
+                ability: "The “Common Folk” of the kingdom automatically think you’re one of them. What does “Common Folk” mean? You tell us."
+            },
+            {
+                stance: "The Look Of Eagles",
+                ability: "If someone is looking for a leader, they look to you. Everyone will assume you’re in charge due to your natural authority."
+            },
+            {
+                stance: "Who The Hell Are They",
+                ability: "In any room, you instantly attract everyone’s attention."
+            },
+            {
+                stance: "Infectious Charm",
+                ability: "In any room, you instantly attract everyone’s attention."
             },
         ],
-        emotional: []
+        emotional: {
+            ecstacy: [ 
+                {
+                    stance: "Painfree",
+                    ability: "You no longer suffer any physical pain."
+                },
+                {
+                    stance: "Life and Soul of the Party",
+                    ability: "Your infectious enthusiasm makes others want to spend time with you."
+                }
+            ],
+            admiration: [ 
+                {
+                    stance: "Hero-Worship",
+                    ability: "Choose one person to idealise. When supporting them in an action, you give two advantages instead of one."
+                },
+                {
+                    stance: "Trusting Face",
+                    ability: "You radiate such simple good-heartedness that people will give you the benefit of the doubt unless there’s a strong reason to do otherwise."
+                }
+            ],
+            terror: [ 
+                {
+                    stance: "Flight",
+                    ability: "When fleeing, you’ll always escape any pursuer who doesn’t have some supernatural ability to hunt you down."
+                },
+                {
+                    stance: "Reading the Danger Room",
+                    ability: "When in this stance, at any time, you can ask the GM “What should I be most frightened of here?” and they must answer honestly."
+                }
+            ],
+            amazement: [ 
+                {
+                    stance: "Eeek!",
+                    ability: "When surprised, you jump out of your skin. You instantly teleport a short distance."
+                },
+                {
+                    stance: "Innocent",
+                    ability: "People cannot read you in any way other than a wide-eyed adorable innocent."
+                }
+            ],
+            grief: [ 
+                {
+                    stance: "Catharsis",
+                    ability: "When Emotion Draining (page 64), you also heal 1 Wound from your target for each level of emotion drained."
+                },
+                {
+                    stance: "Pity Me",
+                    ability: "People pity you as they would a whimpering puppy."
+                }
+            ],
+            loathing: [ 
+                {
+                    stance: "Can't Stand Me Now",
+                    ability: "Everybody who can see you finds you loathsome; they behave appropriately. Their attacks against you have one disadvantage"
+                },
+                {
+                    stance: "My Mind is a Fortress",
+                    ability: "You are so wrapped up in hatred (of self and others) the difficulty of any emotional manipulation is increased by 2."
+                }
+            ],
+            rage: [ 
+                {
+                    stance: "Warface",
+                    ability: "Anyone foolish enough to meet your gaze regrets it. All your attacks gain Special: they metaphorically shit themselves and lose 1 Guard."
+                },
+                {
+                    stance: "Berserk",
+                    ability: "As long as you are in this stance, your Health is increased by your Wisdom."
+                }
+            ],
+            vigilance: [ 
+                {
+                    stance: "You Watch the Watchmen",
+                    ability: "You know any time you’ve been spotted or are about to be ambushed."
+                },
+                {
+                    stance: "Guardian",
+                    ability: "You can declare one person under your protection. You know whenever they are threatened, and gain an advantage when acting on it."
+                }
+            ]
+        }
     }
 
     

@@ -1,10 +1,10 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, ActionRowBuilder, Events, StringSelectMenuBuilder  } = require('discord.js');
 const mongoDriver = require('../mongoDriver.js');
 const { EmotionKnight } = require('../die/emotion_knight.js');
 
 const emotions = [];
 const vents = []
-const combatStances = [];
+const stanceTypes = [{ name: 'combat', value: 'combat' }, { name: 'social', value: 'social' }, { name: 'emotional', value: 'emotional' }]
 
 EmotionKnight.emotions.forEach(e => {
   emotions.push({ name: e, value: e });
@@ -12,10 +12,6 @@ EmotionKnight.emotions.forEach(e => {
 
 EmotionKnight.vents.forEach(v => {
   vents.push({ name: v.vent, value: v.vent });
-})
-
-EmotionKnight.stances.combat.forEach(s => {
-  combatStances.push({ name: s.stance, value: s.stance });
 })
 
 module.exports = {
@@ -42,6 +38,11 @@ module.exports = {
       )
       //TODO - add weapon data
       .addStringOption(option => 
+        option.setName('weapon_trait')
+        .setDescription('Set the Trait of your Arcane Weapon')
+        .addChoices()
+      )
+      .addStringOption(option => 
         option.setName('vent')
         .setDescription('Set the Venting Ability of your Paragon')
         .addChoices(...vents)
@@ -49,9 +50,9 @@ module.exports = {
       .addStringOption(option => 
         option.setName('stance')
         .setDescription('Set the Stance of your Paragon')
-        // TODO - look into subcommand groups / attatchments
-        // TODO - combat, social, emotional vents
-        // TODO - add stance data
+        .addChoices(...stanceTypes)
+        // TODO - add social & emotional stance data
+        //use menus/buttons?
       )
     )
     .addSubcommand(subcommand =>
@@ -68,8 +69,8 @@ module.exports = {
       ),
 	async execute(interaction) {
     const paragon = await mongoDriver.getParagon(interaction.user.id);
-    // HELP subcommand
-    if (interaction.options.getSubcommand() === 'set') {
+    // HELP subcommand TODO finish
+    if (interaction.options.getSubcommand() === 'help') {
       if(paragon.hasOwnProperty("error")){
         await interaction.reply(paragon.error);
       }
@@ -77,7 +78,7 @@ module.exports = {
       //TODO - bot embed?
       var helpStr = 'Here is a list of ek commands'
         + '\nset'
-      await interaction.reply();
+      await interaction.reply(helpStr);
     }
 
 
@@ -91,24 +92,52 @@ module.exports = {
       var _emotion = interaction.options.getString('sacred_emotion');
       var _emotionalScale = interaction.options.getInteger('emotional_scale');
       var _vent = interaction.options.getString('vent');
+      var _stance = interaction.options.getString('stance');
       var doc = {};
       
+      //SACRED EMOTION
       if(_emotion != null){
         doc.sacredEmotion = _emotion;
       } else {
         doc.sacredEmotion = paragon.classFeatures.sacredEmotion;
       };
 
+      //EMOTIONAL SCALE
       if(_emotionalScale != null){
         doc.emotionalScale = _emotionalScale;
       } else {
         doc.emotionalScale = paragon.classFeatures.emotionalScale;
       }
 
+      //VENT
       if(_vent != null){
         doc.vent = _vent;
       } else {
         doc.vent = paragon.classFeatures.vent;
+      }
+
+      //STANCE
+      if(_stance != null){
+        const stances = [];
+
+        if(_stance == 'combat'){
+          EmotionKnight.stances.combat.forEach(s => {
+            stances.push({ label: s.stance, value: s.stance });
+          })
+        }
+
+        const row = new ActionRowBuilder()
+			    .addComponents(
+				    new StringSelectMenuBuilder()
+					    .setCustomId('stance')
+				    	.setPlaceholder('No Stance selected')
+				    	.addOptions(...stances),
+			    );
+
+		    await interaction.reply({ content: 'Select your Stance below', components: [row] });
+        return;
+      } else {
+        doc.stance = paragon.classFeatures.stance;
       }
 
       doc.arcaneWeapon = paragon.classFeatures.arcaneWeapon;

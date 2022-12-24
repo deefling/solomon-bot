@@ -1,5 +1,7 @@
 const fs = require('node:fs');
+const readline = require("readline");
 const path = require('node:path');
+const sol_quotes = [];
 
 const wait = require('node:timers/promises').setTimeout;
 
@@ -32,15 +34,43 @@ for (const file of commandFiles) {
 }
 
 client.on('ready', async () => {
-	await aiBootUp();
+	aiBootUp();
+
+	const stream = fs.createReadStream("./sol_quotes.csv");
+	const rl = readline.createInterface({ input: stream });
+
+	rl.on("line", (row) => {
+		sol_quotes.push(row);
+	});
+	rl.on("close", () => {
+		console.log(sol_quotes);
+	});
 });
 
 async function aiBootUp(){
-	await aiText("connecting to fair servers");
-	await aiText("callibrating ai");
-	await aiText("activating neuromorphic daemon");
-	await aiText("targeting subroutine 'solomon'");
-	await aiText("<<solomon has been booted up>>", false);
+
+	await aiText("Press X to insert fair gold", false);
+
+	// process.stdout.write("\u001B[?25l");
+	// var t = setInterval(async () => {
+	// 	process.stdout.cursorTo(0,0);
+	// 	process.stdout.clearLine();
+	// 	await(wait(800));
+	// 	process.stdout.write("PRESS X TO INSERT FAIR GOLD");
+	// }, 1200);
+
+	const readline = require('readline');
+	readline.emitKeypressEvents(process.stdin);
+
+	process.stdin.on('keypress', async (str, key) => {
+		if (key.name === 'x') {
+			await aiText("core systems powered");
+			await aiText("connecting to fair servers");
+			await aiText("callibrating ai");
+			await aiText("targeting subroutine 'solomon'");
+			await aiText("<<solomon has been booted up>>", false);
+		}
+	});
 }
 
 async function aiText (msg, loading = true){
@@ -64,6 +94,12 @@ client.on('messageCreate', message => {
     // if(message.content === 'ping'){
     //     message.reply('pong');
     // }
+
+	const msg = message.toString().toUpperCase();
+	if(msg.includes('SOL') || msg.includes('SOLOMON')){
+		var rand = Math.floor(Math.random() * sol_quotes.length);
+		message.reply(sol_quotes[rand]);
+	}
 });
 
 client.on(Events.InteractionCreate, async interaction => {

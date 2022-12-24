@@ -8,6 +8,8 @@
 
 //Implement active specials (text descr)
 
+//Polish formatting
+
 //Roll with class dice
 
 //DM abilities?
@@ -31,13 +33,15 @@
 
 // Emotion Knight
     - Finish class feature set methods
-        - weapon
+        - weapon type
+        - weapon personality?
         - stance
+        - decrease scale
     - Custom toString for class features
     - emotionally engaged
     - Creative Violence ability
     - Vent ability
-    - List features
+    - List features (rulebook ref)
 
     //Neo
         - Fair Gold
