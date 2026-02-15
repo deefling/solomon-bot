@@ -43,7 +43,7 @@ client.on('ready', async () => {
 		sol_quotes.push(row);
 	});
 	rl.on("close", () => {
-		console.log(sol_quotes);
+		// console.log(sol_quotes);
 	});
 });
 
@@ -95,8 +95,8 @@ client.on('messageCreate', message => {
     //     message.reply('pong');
     // }
 
-	const msg = message.toString().toUpperCase();
-	if(msg.includes('SOL') || msg.includes('SOLOMON')){
+	const msg = message.toString();
+	if(msg.search(/\bsol\b/i) != -1 || msg.search(/\bsolomon\b/i) != -1){
 		var rand = Math.floor(Math.random() * sol_quotes.length);
 		message.reply(sol_quotes[rand]);
 	}

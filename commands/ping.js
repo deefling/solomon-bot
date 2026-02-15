@@ -8,7 +8,7 @@ module.exports = {
 		.setDescription('Replies with Pong!'),
 	async execute(interaction) {
 		await interaction.deferReply();
-		await wait(4000);
+		// await wait(4000);
 		await interaction.editReply('Pong!');
 	},
 };
