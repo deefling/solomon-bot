@@ -2,10 +2,16 @@
 
 // V1 Documentation/Release Notes
 
+- [Continuous] Update /help with new command functionalities
 - Helpful messages for individual commands
 - Polish formatting
-- Implement rolling with class dice properly
 - Add config file to disable functionalities like bootup text & 'sol' detection
+
+- Catch no-paragon case when rolling
+- Add name to paragon creation (and equipment / looks?)
+    - break up into a workflow?
+- Implement rolling with class dice properly
+- Check class before allowing EK commands to proc
 
 - Store equipment as an array
 - Implement active specials (text descr)
