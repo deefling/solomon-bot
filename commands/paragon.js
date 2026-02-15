@@ -61,6 +61,7 @@ module.exports = {
             .setMinValue(0)
         ),
 	async execute(interaction) {
+        await interaction.deferReply();
         var paragon;
         var _class = interaction.options.getString('class');
         var _user = interaction.user.id;
@@ -86,13 +87,13 @@ module.exports = {
         
         var userParagon = await mongoDriver.getParagon(_user);
         if(userParagon != null && !userParagon.hasOwnProperty('error')){
-            await interaction.reply("You already have a Paragon");
+            await interaction.editReply("You already have a Paragon");
             return;
         }
 
         var result = await mongoDriver.insertParagon(paragon);
         //catch error?
         paragon.initClassFeatures();
-		await interaction.reply(result);
+		await interaction.editReply(result);
 	},
 };

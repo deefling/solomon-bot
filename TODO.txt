@@ -2,12 +2,9 @@
 
 // V1 Documentation/Release Notes
 
-- Switch from hosted DB to localstorage solution
-
-- Help command to list all available commands
 - Helpful messages for individual commands
 - Polish formatting
-- Implement rolling with class dice
+- Implement rolling with class dice properly
 - Add config file to disable functionalities like bootup text & 'sol' detection
 
 - Store equipment as an array
