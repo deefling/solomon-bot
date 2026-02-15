@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon index.js",
     "deploy": "node deploy-commands.js",
-    "roll": "node die/roller.js"
+    "roll": "node die/roller.js",
+    "delete": "node delete-commands.js"
   },
   "keywords": [],
   "author": "",

@@ -2,17 +2,17 @@
 
 // V1 Documentation/Release Notes
 
-// help messages for commands
+- Switch from hosted DB to localstorage solution
 
-// Store equipment as an array
+- Help command to list all available commands
+- Helpful messages for individual commands
+- Polish formatting
+- Implement rolling with class dice
+- Add config file to disable functionalities like bootup text & 'sol' detection
 
-//Implement active specials (text descr)
+- Store equipment as an array
+- Implement active specials (text descr)
 
-//Polish formatting
-
-//Roll with class dice
-
-//DM abilities?
 
 //Dictator
     - Emotional Pallette
@@ -26,10 +26,10 @@
     - duel
     - Emotional nudge
 
-    //Fool
-        - Flukes/Circles
-        - If all else fails
-        - Trade
+//Fool
+    - Flukes/Circles
+    - If all else fails
+    - Trade
 
 // Emotion Knight
     - Finish class feature set methods
@@ -43,23 +43,25 @@
     - Vent ability
     - List features (rulebook ref)
 
-    //Neo
-        - Fair Gold
-        - Neotech
-            special
-        - Gifts
-        - Overcharge
+//Neo
+    - Fair Gold
+    - Neotech
+        special
+    - Gifts
+    - Overcharge
 
-    //Godbinder
-        - Scripture
-        - God Debt
-        - Miracles
-        - Breaking Deals
-        - The Gods
+//Godbinder
+    - Scripture
+    - God Debt
+    - Miracles
+    - Breaking Deals
+    - The Gods
 
-    //Master
-        - Cheating
-        - My Game My Rules
+//Master
+    - Cheating
+    - My Game My Rules
+
+//Other DM abilities?
 
  
 
